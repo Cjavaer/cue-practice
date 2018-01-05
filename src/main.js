@@ -8,13 +8,13 @@ import Plugin from '@/components/common/plugin'
 Vue.config.productionTip = false
 
 Plugin.forEach(plugin => {
-   Vue.use(plugin);
+    Vue.use(plugin);
 });
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  template: '<App/>',
-  components: { App }
+    el: '#app',
+    router,
+    template: '<App/>',
+    components: { App }
 })
