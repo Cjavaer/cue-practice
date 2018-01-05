@@ -67,7 +67,7 @@ export default {
         }
       },
       button:{
-        size:"small"
+        size:"mini"
       },
       tabData:[{
         name:'接机',
