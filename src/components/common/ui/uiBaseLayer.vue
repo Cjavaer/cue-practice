@@ -1,5 +1,5 @@
 <template>
-  <div class="ui-base-layer" v-show="visiable">
+  <div class="ui-base-layer" v-if="visiable">
     <slot></slot>
   </div>
 </template>

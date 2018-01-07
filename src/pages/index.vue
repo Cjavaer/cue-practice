@@ -17,9 +17,7 @@
               <p class="form-label">送达地</p>
               <p><input type="text" v-model="pickUpAddress" placeholder="请选择送达地址" class="pick-address" readonly></p>
             </div>
-            <ui-button v-bind="button" @click="validate">
-              <i icon="close" slot="icon"></i>
-            </ui-button>
+            <ui-button v-bind="button" @click="validate"></ui-button>
         </div>
         <div class="index-drop-airport index-query-box" v-else>
             <div class="flightno-box" brd="row">
@@ -109,6 +107,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.inde-banner{
+  min-height: 100px;
+  background-color: #cbcece
+}
 .index-from{
   position: relative;
   top:-30px;
