@@ -7,6 +7,7 @@
 <script>
 import 'normalize.css';
 import 'reset-css/reset.css';
+import 'animate.css'
 import '@/style/common.css';
 
 export default {

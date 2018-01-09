@@ -1,9 +1,10 @@
 <template>
-  <ui-base-layer ref="baseLayer">
-    <div class="ui-toast">
-      <div class="toast-content">{{toastMsg}}</div>
-    </div>
-  </ui-base-layer>
+
+    <ui-base-layer ref="baseLayer">
+      <div class="ui-toast">
+        <div class="toast-content">{{toastMsg}}</div>
+      </div>
+    </ui-base-layer>
 </template>
 <script>
 import uiBaseLayer from "@/components/common/ui/uiBaseLayer"
@@ -31,7 +32,7 @@ export default {
 };
 </script>
 <style scoped>
-@keyframes fadedown {
+/* @keyframes fadedown {
   0% {
     transform: translate3d(0, -50%, 0);
     transform: scale(0.8);
@@ -47,7 +48,7 @@ export default {
     opacity: 1;
     transform: scale(1);
   }
-}
+} */
 .ui-toast {
   height:100%;
   width:100%;
@@ -68,7 +69,7 @@ export default {
   font-size: 12px;
   border-radius: 4px;
   background: rgba(0, 0, 0, 0.8);
-  animation: fadedown 0.3s cubic-bezier(0.42, 0, 0, 1.3);
+  /* animation: fadedown 0.3s cubic-bezier(0.42, 0, 0, 1.3); */
 }
 </style>
 
