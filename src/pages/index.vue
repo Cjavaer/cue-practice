@@ -89,7 +89,7 @@ export default {
     validate(){
       if(this.tabIndex == 0){
         if(!this.pickUoFlightNo){
-          this.$showToast('请选择航班号');
+          this.$showToast({toastMsg:'请选择航班号'});
           return false;
         }
         if(!this.pickUpAddress){

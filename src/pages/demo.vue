@@ -41,33 +41,33 @@ export default {
     }
   },
   beforeCreate(){
-    console.log(this.answer,'bc');
-    console.log(this.$el,'bc');
+    // console.log(this.answer,'bc');
+    // console.log(this.$el,'bc');
   },
   created(){
-    console.log(this.answer,'c');
-    console.log(this.$el,'c');
+    // console.log(this.answer,'c');
+    // console.log(this.$el,'c');
   },
   beforeMount(){
-    console.log(this.answer,'bm');
-    console.log(this.$el,'bm');
+    // console.log(this.answer,'bm');
+    // console.log(this.$el,'bm');
   },
   mounted(){
-    console.log(this.answer,'m');
-    console.log(this.$el,'m');
+    // console.log(this.answer,'m');
+    // console.log(this.$el,'m');
     this.apiUrl = this.testModel.url;
   },
   updated(){
-    console.log(this.$el,'u')
+    // console.log(this.$el,'u')
   },
   beforeUpdate(){
-    console.log(this.$el,'bu')
+    // console.log(this.$el,'bu')
   },
   beforeDestroy(){
-    console.log(this,'bd')
+    // console.log(this,'bd')
   },
   destroyed(){
-    console.log(this,'d')
+    // console.log(this,'d')
   },
   methods:{
     addTodo(){
