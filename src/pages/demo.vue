@@ -8,7 +8,7 @@
         v-for="(todo,index) in todoList"
         :key="index"
         :todo="todo"
-        @deleteCallback="deleteTodoItem(index)">
+        @todoItemCallback="deleteTodoItem(index)">
       </demo-todo-item>
     </ul>
   </div>
@@ -82,7 +82,7 @@ export default {
     },
     deleteTodoItem(index){
       this.todoList.splice(index,1);
-      --this.nextId
+      --this.nextId;
     },
     async getAnswer(){
       if(this.question.indexOf('?') === -1){
@@ -93,7 +93,7 @@ export default {
       try{
         this.testModel.url = this.apiUrl + this.question.slice(0,-1);
         let reponse = await this.testModel.fetch();
-        this.answer = reponse.name;
+        this.answer = reponse.name || '查询不到该用户';
       }catch(e){
         this.answer =e.name;
       }
