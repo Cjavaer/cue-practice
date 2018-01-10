@@ -3,7 +3,7 @@
     <li class="todolist">
         <i icon="success" @click="todoComplete" v-if="complete"></i>
         <i icon="circle" @click="todoComplete" v-else></i>
-      <span class="todoitem" :class="{completed:complete}">{{todo.item}}</span>
+      <span class="todoitem" :class="{completed:complete}">{{todo.item | upperCaseInput}}</span>
       <i icon="e_radio" v-if="complete"></i>
       <i icon="close" @click="deletTodoItem" v-else></i>
     </li>
@@ -17,6 +17,12 @@ export default {
   data(){
     return {
       complete:false
+    }
+  },
+  filters:{//过滤器
+    upperCaseInput(value){
+      if(!value) return ''
+      return value.toUpperCase();
     }
   },
   computed:{
