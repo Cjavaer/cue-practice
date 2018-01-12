@@ -14,6 +14,7 @@
 export default {
   name:'demo-todo-item',
   props:['todo'],
+  inheritAttrs:true,
   data(){
     return {
       complete:false

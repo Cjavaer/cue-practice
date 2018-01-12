@@ -9,6 +9,7 @@
         v-for="(todo,index) in todoList"
         :key="index"
         :todo="todo"
+        :inheritAttr="sdaasd"
         @todoItemCallback="deleteTodoItem(index)">
       </demo-todo-item>
     </ul>
@@ -70,12 +71,11 @@ export default {
     }
   },
   beforeCreate(){
-    // console.log(this.answer,'bc');
-    // console.log(this.$el,'bc');
+    console.log(this.$data,'beforeCreate');
   },
   created(){
-    // console.log(this.answer,'c');
-    // console.log(this.$el,'c');
+    console.log(this.$data,'created');
+    this.apiUrl = this.testModel.url;
   },
   beforeMount(){
     // console.log(this.answer,'bm');
@@ -85,8 +85,6 @@ export default {
     // console.log(this.answer,'m');
     // console.log(this.$el,'m');
     console.log(this);
-    this.show = false;
-    this.apiUrl = this.testModel.url;
   },
   updated(){
     // console.log(this.$el,'u')
