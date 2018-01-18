@@ -29,7 +29,7 @@ import PostCard from '@/components/cnode/postcard'
 import TopicsItem from '@/components/cnode/TopicItem'
 
 export default {
-  name:'index',
+  name:'ask',
   components:{
       [PostCard.name]:PostCard,
       [TopicsItem.name]:TopicsItem
@@ -43,22 +43,23 @@ export default {
       }
   },
   async mounted(){
-    try{
+      try{
         console.time('async');
         let response = await this.model.fetch({
             page:1,
-            tab:'all',
+            tab:'ask',
             limit:20
             })
         console.timeEnd('async');
+        console.log(response.data);
         this.topicsCellect = response.data;
         this.loading = false;
-    }catch(e){
-        console.log(e);
-        this.topicsCellect = [];
-        this.emptyTopics = true;
-        this.loading = false;
-    }
+      }catch(e){
+          console.log(e);
+          this.topicsCellect = [];
+          this.emptyTopics = true;
+          this.loading = false;
+      }
     
   }
 }

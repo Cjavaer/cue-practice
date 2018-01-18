@@ -23,9 +23,7 @@ showToast.install = (Vue , options) => {
                 instance.$refs.baseLayer.mount = false;
             }
         })
-        if(instance.$refs.baseLayer.mount){
-            document.body.appendChild(instance.$el);
-        }
+        document.body.appendChild(instance.$el);
         instance.$refs.baseLayer.visiable = true;
         setTimeout(()=>{
             instance.close();

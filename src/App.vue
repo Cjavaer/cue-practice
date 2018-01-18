@@ -1,5 +1,8 @@
 <template>
-  <div id="app">
+  <div id="app-template">
+    <div class="header">
+          <ui-cnode-header></ui-cnode-header>   
+    </div>
     <router-view/>
   </div>
 </template>
@@ -9,10 +12,11 @@ import 'normalize.css';
 import 'reset-css/reset.css';
 import 'animate.css'
 import '@/style/common.css';
-
+import Header from '@/components/cnode/header'
 export default {
   name: 'app',
-  beforeCreate(){
+  components:{
+    [Header.name]:Header
   }
 }
 </script>

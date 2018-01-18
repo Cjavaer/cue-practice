@@ -3,7 +3,6 @@
       name="custom-animation"
       enter-active-class="animated flipInX"
       leave-active-class="animated flipOutX"
-      :duration="2500"
       >
     <div class="ui-base-layer" v-if="visiable">
       <slot></slot>

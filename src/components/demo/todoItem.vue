@@ -1,11 +1,11 @@
 <template>
   <transition name="fade">
     <li class="todolist">
-        <i icon="success" @click="todoComplete" v-if="complete"></i>
-        <i icon="circle" @click="todoComplete" v-else></i>
+        <i icon="success" @click="todoComplete" v-if="complete" key="success"></i>
+        <i icon="circle" @click="todoComplete" v-else key="circle"></i>
       <span class="todoitem" :class="{completed:complete}">{{todo.item}}</span>
-      <i icon="e_radio" v-if="complete"></i>
-      <i icon="close" @click="deletTodoItem" v-else></i>
+      <i icon="e_radio" key="radio" v-if="complete"></i>
+      <i icon="close" key="close" @click="deletTodoItem" v-else></i>
     </li>
   </transition>
 </template>
@@ -14,9 +14,16 @@
 export default {
   name:'demo-todo-item',
   props:['todo'],
+  inheritAttrs:true,
   data(){
     return {
       complete:false
+    }
+  },
+  filters:{//过滤器
+    upperCaseInput(value){
+      if(!value) return ''
+      return value.toUpperCase();
     }
   },
   computed:{

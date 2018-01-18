@@ -15,3 +15,4 @@ export class GitHubUserModel extends BizModel{
         this.init();
     }
 }
+

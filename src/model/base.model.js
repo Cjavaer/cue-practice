@@ -19,7 +19,7 @@ class BaseModel{
             cancelToken: this._source.token,
             timeout: this.timeout,
             headers: {
-                'Accept': 'application/vnd.github.v3+json',
+                // 'Accept': 'application/vnd.github.v3+json',
                 'Content-Type': 'application/json;charset=UTF-8'
             },
             transformRequest: [function(data){
@@ -43,7 +43,8 @@ class BaseModel{
         }
         return new Promise((resolve,reject) => {
             this._isFetching = true;
-            this.service.get(this.url,Object.assign({},this.paras,data)).then(response => {
+            this.service.get(this.url,
+                {params:Object.assign({},this.paras,data)}).then(response => {
                 this._isFetching =false;
                 let data = this.dataformat(response);
                 resolve(data);
