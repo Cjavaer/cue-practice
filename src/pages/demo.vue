@@ -9,7 +9,6 @@
         v-for="(todo,index) in todoList"
         :key="index"
         :todo="todo"
-        :inheritAttr="sdaasd"
         @todoItemCallback="deleteTodoItem(index)">
       </demo-todo-item>
     </ul>
@@ -27,12 +26,24 @@
       </transition>
       <button @click="toggle">切换</button>
     </div>
+    <div class="vuex-demo">
+      <button @click="emitActionAsync">async</button>
+      <button @click="emitMutationSync">sync</button>
+      <p>A:{{ countA }}</p>
+      <p>A:{{ injectA }}</p>
+      <p>B:{{ countB }}</p>
+      <p>B:{{ injectB }}</p>
+    </div>
   </div>
 </template>
 <script>
 import todoItem from '@/components/demo/todoItem'
 import lodash from 'lodash'
 import { GitHubUserModel } from "@/model/model"
+import { mapState,mapMutations,mapActions } from 'vuex'
+import { INCREMENT,INJECT } from '@/const'
+// import { createNamespacedHelpers } from 'vuex' //命名空间辅助函数
+// const { mapState,mapMutations,mapActions } = createNamespacedHelpers('testModuleA');
 
 export default {
   name:'demo',
@@ -45,7 +56,7 @@ export default {
       nextId:0,
       todoItem:'',
       answer:'I cannot give you an answer until you ask a question!',
-      question:'sdadas',
+      question:'',
       testModel:new GitHubUserModel(),
       apiUrl:'',
       show:true,
@@ -70,11 +81,19 @@ export default {
     fadeOutDuration(newOutDuration){
     }
   },
+  computed:{
+    ...mapState('testModuleA',{
+      countA:state => state.count,
+      injectA:state => state.inject
+    }),
+    ...mapState('testModuleB',{
+      countB:state => state.count,
+      injectB:state => state.inject
+    }),
+  },
   beforeCreate(){
-    console.log(this.$data,'beforeCreate');
   },
   created(){
-    console.log(this.$data,'created');
     this.apiUrl = this.testModel.url;
   },
   beforeMount(){
@@ -141,10 +160,33 @@ export default {
     },
     toggle(){
       this.show = !this.show;
-    }
+    },
+    emitActionAsync(){
+      this.increment({count:40});
+      
+    },
+    emitMutationSync(){
+      // this.$store.commit(INCREMENT,{count:20});//正常书写
+      // this.inject();//别名
+      this.INJECT();//直接使用原名
+    },
+    // ...mapMutations({ //映射成别名
+    //   'inject':INJECT
+    // }),
+    ...mapMutations('testModuleA',[//映射成原始名字
+      INCREMENT,
+      INJECT
+    ]),
+    // ...mapActions([ //映射成原始名字
+    //    INCREMENT
+    // ]),
+    ...mapActions('testModuleA',{//映射成别名
+      'increment':INCREMENT
+    })
   }
 }
 </script>
+
 <style scoped>
 input{
   border:1px solid #a5d6f8;

@@ -6,11 +6,15 @@
       <span class="todoitem" :class="{completed:complete}">{{todo.item}}</span>
       <i icon="e_radio" key="radio" v-if="complete"></i>
       <i icon="close" key="close" @click="deletTodoItem" v-else></i>
+      <p>{{count}}</p>
     </li>
   </transition>
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex'
+const { mapState} = createNamespacedHelpers('testModuleA');
+
 export default {
   name:'demo-todo-item',
   props:['todo'],
@@ -27,6 +31,9 @@ export default {
     }
   },
   computed:{
+    ...mapState({
+      count: state => state.count,
+    })
   },
   methods:{
     deletTodoItem(){
