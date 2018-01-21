@@ -36,11 +36,6 @@ export default new Router({
             component:Share
         },
         {
-            path:'/:id',
-            name:'detail',
-            component:Detail
-        },
-        {
             path:'/ask',
             name:'ask',
             component:Ask
@@ -59,6 +54,11 @@ export default new Router({
             path: '/demo',
             name: 'demo',
             component: Demo
+        },
+        {
+            path:'/:id',
+            name:'detail',
+            component:Detail
         }
     ]
 })

@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
 import Plugin from '@/components/common/plugin'
 
 Vue.config.productionTip = false
@@ -15,6 +16,7 @@ Plugin.forEach(plugin => {
 new Vue({
     el: '#app',
     router,
+    store,
     template: '<App/>',
     components: { App }
 })
