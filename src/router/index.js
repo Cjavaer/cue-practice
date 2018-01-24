@@ -8,6 +8,8 @@ import Job from '@/pages/job'
 import Detail from '@/pages/detail'
 import Pick from '@/pages/pick'
 import Demo from '@/pages/demo'
+import Todo from '@/example/todomvc/todo'
+import Dynamic from '@/example/dynamic'
 
 Vue.use(Router)
 
@@ -54,6 +56,16 @@ export default new Router({
             path: '/demo',
             name: 'demo',
             component: Demo
+        },
+        {
+            path:'/todo',
+            name:'todo',
+            component:Todo
+        },
+        {
+            path:'/dynamic',
+            name:'dynamic',
+            component:Dynamic
         },
         {
             path:'/:id',
